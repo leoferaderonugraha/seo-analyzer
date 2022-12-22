@@ -1,0 +1,30 @@
+version: "3.1"
+
+services:
+  web:
+    build:
+      context: .
+    environment:
+      - FLASK_DEBUG=true
+      - FLASK_APP=src/py/app.py
+      - FLASK_RUN_HOST=0.0.0.0
+      - FLASK_RUN_PORT=1405
+    command:
+      - sh
+      - -c
+      - |
+        poetry run flask run
+    ports:
+      - "1405:5000"
+      - "8888:8888"
+    restart: unless-stopped
+
+  background_service:
+    build:
+      context: .
+    command:
+      - sh
+      - -c
+      - |
+        poetry run python3 src/py/background_service.py
+    network_mode: service:web

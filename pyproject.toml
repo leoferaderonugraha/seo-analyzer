@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "seo-analyzer"
+version = "0.1.0"
+description = ""
+authors = ["Leo Feradero Nugraha <leoferaderonugraha@gmail.com>"]
+readme = "README.md"
+packages = [{include = "seo_analyzer"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+gevent = "^22.10.2"
+websockets = "^10.4"
+pyseoanalyzer = "^4.0.7"
+async-cache = "^1.1.1"
+bs4 = "^0.0.1"
+flask = "^2.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
